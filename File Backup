@@ -1,0 +1,44 @@
+#!/bin/bash
+
+#############################################
+# chekc root user.
+#############################################
+if [ "${USER}" != "root" ]; then
+    echo "This command can only be executed by the root user."
+    exit 2;
+fi
+
+BACKUP_DIR="/mnt/backup/daily"
+
+if [ ! -e $BACKUP_DIR ]; then
+    echo "ERROR: NAS is NOT mounted."
+    exit 3;
+fi
+
+
+TAR="/bin/tar"
+DATE=`date +"%Y%m%d"`
+
+#############################################
+# SONARQUBE
+#############################################
+USRPGSQL_DIR="/usr/pgsql-9.6"
+VARPGSQL_DIR="/var/lib/pgsql"
+EXPORT_DIR="/export/sonarqube"
+
+TARGET_NAME=usr_pgsql
+$TAR czvf ${BACKUP_DIR}/${TARGET_NAME}_${DATE}.tgz -C "/" ${USRPGSQL_DIR}
+
+TARGET_NAME=var_lib_pgsql
+$TAR czvf ${BACKUP_DIR}/${TARGET_NAME}_${DATE}.tgz -C "/" ${VARPGSQL_DIR}}
+
+TARGET_NAME=export-bkp
+$TAR czvf ${BACKUP_DIR}/${TARGET_NAME}_${DATE}.tgz -C "/" ${EXPORT_DIR}
+
+#############################################
+# Cleanup
+#############################################
+#ls
+find ${BACKUP_DIR} -mtime +5 -exec ls -l {} \;
+#rm
+find ${BACKUP_DIR} -mtime +5 -exec rm -f {} \;
