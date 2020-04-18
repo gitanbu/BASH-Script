@@ -56,3 +56,12 @@ git branch -l
 git branch -r > ./../branch_list_dest.txt
 echo "==========GIT PUSH ===============";
 git push -u origin --all
+
+
+
+
+Jenkins jobs on execute shell with string parameter
+
+git clone https://NDH00347:Mjk1MDUzMzY1MjQyOhuSU26%2Fa2QtCPqU84zS57ufzHFw@bitbucket.aws.na.nissancloud.biz/scm/dev/bitbucket-migration-script.git
+chmod +x ./bitbucket-migration-script/migrate_repo.sh
+./bitbucket-migration-script/migrate_repo.sh "$reponame" $bitbucket_project_id_src $bitbucket_project_id_dest
