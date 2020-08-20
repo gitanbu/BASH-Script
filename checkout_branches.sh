@@ -43,8 +43,8 @@ git fetch --all
 git pull --all
 echo "==========CURRENT GIT REMOTE URL===============";
 git remote -v
-#git remote set-url origin https://NDH00347:Mjk1MDUzMzY1MjQyOhuSU26%2Fa2QtCPqU84zS57ufzHFw@bitbucket.aws.na.nissancloud.biz/scm/apx0104/$reponame.git
-#git remote set-url origin https://ndh00347:NjMxODA2NzY2MDA1OhxxrPXcxnuJxXwYPIutdmIcQjQA@bitbucket.devops-nissan.biz/scm/test/git_trng.git
+#git remote set-url origin https://z027812:Mjk1MDUzMzY1MjQyOhuSU26%2Fa2QtCPqU84zS57ufzHFw@bitbucket.cloud.biz/scm/apx0104/$reponame.git
+#git remote set-url origin https://z027812:NjMxODA2NzY2MDA1OhxxrPXcxnuJxXwYPIutdmIcQjQA@bitbucket.devops.biz/scm/test/git_trng.git
 git remote set-url origin "https://$ndhid:$personal_access_token_dest@$bitbucket_url_src/scm/$bitbucket_project_id_dest/$reponame.git"
 echo "==========UPDATED GIT REMOTE URL===============";
 git remote -v
